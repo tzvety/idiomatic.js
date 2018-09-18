@@ -55,7 +55,7 @@
 >_Idan_ _Gazit_
 
 
-## Translations
+## Преводи
 
 * [German](https://github.com/rwldrn/idiomatic.js/tree/master/translations/de_DE)
 * [French](https://github.com/rwldrn/idiomatic.js/tree/master/translations/fr_FR)
@@ -74,9 +74,9 @@
 * [Greek](https://github.com/rwaldron/idiomatic.js/tree/master/translations/gr_GR)  
 * [Български](https://github.com/rwaldron/idiomatic.js/tree/master/translations/bg_BG)  
 
-## Important, Non-Idiomatic Stuff:
+## Важни връзки:
 
-### Code Quality Tools, Resources & References
+### Инструменти за писане на качествен код, ресурси и референции
 
  * [JavaScript Plugin](http://docs.codehaus.org/display/SONAR/JavaScript+Plugin) for [Sonar](http://www.sonarsource.org/)
  * [Plato](https://github.com/es-analysis/plato)
@@ -170,20 +170,20 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
       - Eliminating end of line whitespace
       - Eliminating blank line whitespace
       - Commits and diffs that are easier to read
-  - Use [Editorconfig](http://editorconfig.org/) when possible.  It supports most IDEs and handles most whitespace settings.
+  - Използвайте [Editorconfig](http://editorconfig.org/) когато е възможно. Той се поддържа от повечето IDE-та и се грижи за повечето настройки на отстоянията.
 
 
-2. <a name="spacing">Beautiful Syntax</a>
+2. <a name="spacing">Красив синтаксис</a>
 
     A. Parens, Braces, Linebreaks
 
     ```javascript
 
-    // if/else/for/while/try always have spaces, braces and span multiple lines
-    // this encourages readability
+    // if/else/for/while/try винаги имат отстояния, скобите и span са многоредови
+    // то придава повече четимост
 
     // 2.A.1.1
-    // Examples of really cramped syntax
+    // Примери на трудно четим синтаксис
 
     if(condition) doSomething();
 
@@ -240,47 +240,47 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     ```
 
 
-    B. Assignments, Declarations, Functions ( Named, Expression, Constructor )
+    B. Заявления, Декларации, Функции ( Именуване, Изрази, Конструктори )
 
     ```javascript
 
     // 2.B.1.1
-    // Variables
+    // Променливи
     var foo = "bar",
       num = 1,
       undef;
 
-    // Literal notations:
+    // Буквални означения:
     var array = [],
       object = {};
 
 
     // 2.B.1.2
-    // Using only one `var` per scope (function) or one `var` for each variable,
-    // promotes readability and keeps your declaration list free of clutter.
+    // Използването само на един `var` за всеки scope (функция) или на един `var` за всяка променлива,
+    // придава четимост и поддържа кода чист.
     // Using one `var` per variable you can take more control of your versions
     // and makes it easier to reorder the lines.
     // One `var` per scope makes it easier to detect undeclared variables
     // that may become implied globals.
     // Choose better for your project and never mix them.
 
-    // Bad
+    // Лош пример
     var foo = "",
       bar = "";
     var qux;
 
-    // Good
+    // Добър пример
     var foo = "";
     var bar = "";
     var qux;
 
-    // or..
+    // или..
     var foo = "",
       bar = "",
       qux;
 
-    // or..
-    var // Comment on these
+    // или..
+    var // Коментар на тези
     foo = "",
     bar = "",
     quux;
