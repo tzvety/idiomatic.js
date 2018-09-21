@@ -36,7 +36,7 @@
 * Richard Gibson [@gibson042](http://twitter.com/gibson042), [github](https://github.com/gibson042)  
 * Fesuy [github](https://github.com/fesuydev)  
 * Stephane Moreau [github](https://github.com/stmoreau)  
-* tzvety [github](https://github.com/tzvety)  
+* Tsvetana Nikova [github](https://github.com/tzvety)  
 
 
 ## Написаният код винаги трябва да изглежда така, сякаш е създаден от един човек, независимо колко хора са работили по него.
@@ -46,12 +46,12 @@
 ### Нямам намерение да налагам моите предпочитания върху кода на други хора или проекти; ако съществува в момента популярен стил, той трябва да се респектира.
 
 
-> ### "Arguments over style are pointless. There should be a style guide, and you should follow it"
+> ### "Аргументите върху начина на писане на код са безпочвени. Трябва да има номенклатура, която да се следва."
 >_Rebecca_ _Murphey_
 
 &nbsp;
 
-> ### "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."
+> ### "Един от основните принципи да бъдеш добра част от успешен проект е осъзднаването, че писането на код "за себе си" е лоша идея. Ако хиляди потребтители ползват кода ти, тогава го пиши максимално чисто, не според предпочитанията си и не за да покажеш умния си подход в спецификациите."
 >_Idan_ _Gazit_
 
 
@@ -78,7 +78,7 @@
 
 ### Инструменти за писане на качествен код, ресурси и референции
 
- * [JavaScript Plugin](http://docs.codehaus.org/display/SONAR/JavaScript+Plugin) for [Sonar](http://www.sonarsource.org/)
+ * [JavaScript Plugin](http://docs.codehaus.org/display/SONAR/JavaScript+Plugin) за [Sonar](http://www.sonarsource.org/)
  * [Plato](https://github.com/es-analysis/plato)
  * [jsPerf](http://jsperf.com/)
  * [jsFiddle](http://jsfiddle.net/)
@@ -93,12 +93,12 @@
  * [Editorconfig](http://editorconfig.org/)
  * [Hound](https://houndci.com/)
 
-## Get Smart
+## Бъди разумен
 
 ### [Анотиран ECMAScript 5.1](http://es5.github.com/)
 ### [EcmaScript спецификация, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
 
-Списъкът от връзки тук трябва е 1) незавършен, и 2) *ИЗИСКВА ЧЕТЕНЕ*. Аз не винаги съм съгласен със стила на авторите по-долу, но едно е сигурно: Те са последователни.
+Списъкът от връзки тук трябва е 1) незавършен, и 2) *ИЗИСКВА ЧЕТЕНЕ*. Аз не винаги съм съгласен със стила на авторите по-долу, но едно е сигурно - те са последователни.
 
  * [Baseline For Front End Developers: 2015](http://rmurphey.com/blog/2015/03/23/a-baseline-for-front-end-developers-2015/)
  * [Eloquent JavaScript](http://eloquentjavascript.net/)
@@ -152,30 +152,30 @@
 
 ## Предговор
 
-The following sections outline a _reasonable_ style guide for modern JavaScript development and are not meant to be prescriptive. The most important take-away is the **law of code style consistency**. Whatever you choose as the style for your project should be considered law. Link to this document as a statement of your project's commitment to code style consistency, readability and maintainability.
+Следващите секции формират едно _логично_ ръководство за стилизирано писане на модерен JavaScript. Те не трябва да бъдат считани за нормативни. Най-важната част е **стилова последователност**. Какъвто и стил да изберете за писане на проеките си, трябва да го приемете като закон. Добавете връзка към този документ, за да декларирате последователност, четимост и ползваемост на кода си.
 
 
 
 
 
-## Idiomatic Style Manifesto
+## Манифест за идиоматичен стил
 
 
 1. <a name="whitespace">Отстояния</a>
   - Никога не смесвайте интервалите с табулатури.
   - Когато стартирате проект, преди да започнете писането на код, изберете между soft indents (интервали) и tabs, приемете го като **закон**.
-      - For readability, I always recommend setting your editor's indent size to two characters &mdash; this means two spaces or two spaces representing a real tab.
-  - If your editor supports it, always work with the "show invisibles" setting turned on. The benefits of this practice are:
-      - Enforced consistency
-      - Eliminating end of line whitespace
-      - Eliminating blank line whitespace
-      - Commits and diffs that are easier to read
+      - За повече четимост, аз винаги препоръчвам отстоянията да са 2 символа до 2 символа и &mdash;. Това означава два интервала или два интервала представляващи един реален tab.
+  - Ако редакторът ви го поддържа, винаги работете в режим на показване на скритите символи. Преимуществата на това са:
+      - По-лесно поддържане на консистентност
+      - Премахване на интервалите в края на редовете
+      - Премахване на празните редове с интервали
+      - Commits и diffs се четат значително по-лесно
   - Използвайте [Editorconfig](http://editorconfig.org/) когато е възможно. Той се поддържа от повечето IDE-та и се грижи за повечето настройки на отстоянията.
 
 
 2. <a name="spacing">Красив синтаксис</a>
 
-    A. Parens, Braces, Linebreaks
+    A. Скоби и разделители
 
     ```javascript
 
@@ -185,9 +185,9 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     // 2.A.1.1
     // Примери на трудно четим синтаксис
 
-    if(condition) doSomething();
+    if( условие ) doSomething();
 
-    while(condition) iterating++;
+    while( условие ) iterating++;
 
     for(var i=0;i<100;i++) someIterativeFn();
 
@@ -196,15 +196,15 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     // Използвайте отстояния за повече четимост
 
     if ( условие ) {
-      // твърдения
+      // функционален код
     }
 
     while ( условие ) {
-      // твърдения
+      // функционален код
     }
 
     for ( var i = 0; i < 100; i++ ) {
-      // твърдения
+      // функционален код
     }
 
     // Дори по-добре:
@@ -213,7 +213,7 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
       length = 100;
 
     for ( i = 0; i < length; i++ ) {
-      // твърдения
+      // функционален код
     }
 
     // Или...
@@ -222,23 +222,22 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
       length = 100;
 
     for ( ; i < length; i++ ) {
-      // твърдения
+      // функционален код
     }
 
     var prop;
 
     for ( prop in object ) {
-      // твърдения
+      // функционален код
     }
 
 
     if ( true ) {
-      // твърдения
+      // функционален код
     } else {
-      // твърдения
+      // функционален код
     }
     ```
-
 
     B. Заявления, Декларации, Функции ( Именуване, Изрази, Конструктори )
 
@@ -250,7 +249,7 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
       num = 1,
       undef;
 
-    // Буквални означения:
+    // Буквални декларации
     var array = [],
       object = {};
 
@@ -258,11 +257,11 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     // 2.B.1.2
     // Използването само на един `var` за всеки scope (функция) или на един `var` за всяка променлива,
     // придава четимост и поддържа кода чист.
-    // Using one `var` per variable you can take more control of your versions
-    // and makes it easier to reorder the lines.
-    // One `var` per scope makes it easier to detect undeclared variables
-    // that may become implied globals.
-    // Choose better for your project and never mix them.
+    // Ако използвате `var` пред всяка променлива, можете да контролирате по-добре версиите си
+    // и реорганизирането на редове е значително по-лесно.
+    // Един `var` за всеки scope прави по-лесно откриването на недекларирани променливи
+    // които в противен случай, ще останат глобални.
+    // Изберете предварително как ще работите и се придържайте към избора си. 
 
     // Лош пример
     var foo = "",
@@ -286,36 +285,36 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     quux;
 
     // 2.B.1.3
-    // var твърдения should always be in the beginning of their respective scope (function).
+    // var заявленията трябва винаги да се случват в началото на техния scope (функцията).
 
 
-    // Bad
+    // Лош пример
     function foo() {
 
-      // some твърдения here
+      // функционален код
 
       var bar = "",
         qux;
     }
 
-    // Good
+    // Добър пример
     function foo() {
       var bar = "",
         qux;
 
-      // all твърдения after the variables declarations.
+      // функционалния код е след декларирането на променливите.
     }
 
     // 2.B.1.4
-    // const and let, from ECMAScript 6, should likewise be at the top of their scope (block).
+    // const и let, от ECMAScript 6, също трябва да се заявяват в началото на техния scope (block).
 
-    // Bad
+    // Лош пример
     function foo() {
       let foo,
         bar;
       if ( condition ) {
         bar = "";
-        // твърдения
+        // функционален код
       }
     }
     // Good
@@ -323,7 +322,7 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
       let foo;
       if ( condition ) {
         let bar = "";
-        // твърдения
+        // функционален код
       }
     }
     ```
@@ -331,42 +330,42 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     ```javascript
 
     // 2.B.2.1
-    // Named Function Declaration
+    // Деклариране на функции с имена
     function foo( arg1, argN ) {
 
     }
 
-    // Usage
+    // Употреба
     foo( arg1, argN );
 
 
     // 2.B.2.2
-    // Named Function Declaration
+    // Деклариране на функции с имена
     function square( number ) {
       return number * number;
     }
 
-    // Usage
+    // Употреба
     square( 10 );
 
-    // Really contrived continuation passing style
+    // Доста завъртян стил за предаване на параметри
     function square( number, callback ) {
       callback( number * number );
     }
 
     square( 10, function( square ) {
-      // callback твърдения
+      // callback заявления
     });
 
 
     // 2.B.2.3
-    // Function Expression
+    // Функционални изрази
     var square = function( number ) {
-      // Return something valuable and relevant
+      // Връща стойност или нещо релевантно
       return number * number;
     };
 
-    // Function Expression with Identifier
+    // Функционални изрази с идентификатор
     // This preferred form has the added value of being
     // able to call itself and have an identity in stack traces:
     var factorial = function factorial( number ) {
@@ -435,21 +434,21 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     // 2.D.1.1
 
     if (condition) {
-      // твърдения
+      // заявления
     }
 
     while (condition) {
-      // твърдения
+      // заявления
     }
 
     for (var i = 0; i < 100; i++) {
-      // твърдения
+      // заявления
     }
 
     if (true) {
-      // твърдения
+      // заявления
     } else {
-      // твърдения
+      // заявления
     }
 
     ```
@@ -1155,9 +1154,9 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
 
     This section will serve to illustrate ideas and concepts that should not be considered dogma, but instead exists to encourage questioning practices in an attempt to find better ways to do common JavaScript programming tasks.
 
-    A. Using `switch` should be avoided, modern method tracing will blacklist functions with switch твърдения
+    A. Using `switch` should be avoided, modern method tracing will blacklist functions with switch заявления
 
-    There seems to be drastic improvements to the execution of `switch` твърдения in latest releases of Firefox and Chrome.
+    There seems to be drastic improvements to the execution of `switch` заявления in latest releases of Firefox and Chrome.
     http://jsperf.com/switch-vs-object-literal-vs-module
 
     Notable improvements can be witnessed here as well:
@@ -1189,17 +1188,17 @@ The following sections outline a _reasonable_ style guide for modern JavaScript 
     // Example returns for illustration only.
     cases = {
       alpha: function() {
-        // твърдения
+        // заявления
         // a return
         return [ "Alpha", arguments.length ];
       },
       beta: function() {
-        // твърдения
+        // заявления
         // a return
         return [ "Beta", arguments.length ];
       },
       _default: function() {
-        // твърдения
+        // заявления
         // a return
         return [ "Default", arguments.length ];
       }
