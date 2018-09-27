@@ -46,7 +46,7 @@
 ### Нямам намерение да налагам моите предпочитания върху кода на други хора или проекти; ако съществува в момента популярен стил, той трябва да се респектира.
 
 
-> ### "Аргументите върху начина на писане на код са безпочвени. Трябва да има номенклатура, която да се следва."
+> ### "В повечето случаи, аргументите върху начина на писане на код са безпочвени. Трябва да има номенклатура, която да се следва."
 >_Rebecca_ _Murphey_
 
 &nbsp;
@@ -258,7 +258,7 @@
     // Използването само на един `var` за всеки scope (функция) или на един `var` за всяка променлива,
     // придава четимост и поддържа кода чист.
     // Ако използвате `var` пред всяка променлива, можете да контролирате по-добре версиите си
-    // и реорганизирането на редове е значително по-лесно.
+    // и реорганизирането по редове е значително по-лесно.
     // Един `var` за всеки scope прави по-лесно откриването на недекларирани променливи
     // които в противен случай, ще останат глобални.
     // Изберете предварително как ще работите и се придържайте към избора си. 
@@ -366,8 +366,6 @@
     };
 
     // Функционални изрази с идентификатор
-    // This preferred form has the added value of being
-    // able to call itself and have an identity in stack traces:
     var factorial = function factorial( number ) {
       if ( number < 2 ) {
         return 1;
@@ -378,13 +376,13 @@
 
 
     // 2.B.2.4
-    // Constructor Declaration
+    // Деклариране на конструктури
     function FooBar( options ) {
 
       this.options = options;
     }
 
-    // Usage
+    // Употреба
     var fooBar = new FooBar({ a: "alpha" });
 
     fooBar.options;
@@ -398,46 +396,46 @@
     ```javascript
 
     // 2.C.1.1
-    // Functions with callbacks
+    // Функции с callback
     foo(function() {
-      // Note there is no extra space between the first paren
-      // of the executing function call and the word "function"
+      // Забележете, че има допълнителен интервал преди първата скоба
+      // на функцията и думата "function"
     });
 
-    // Function accepting an array, no space
+    // Функция с параметър масив, без интервали
     foo([ "alpha", "beta" ]);
 
     // 2.C.1.2
-    // Function accepting an object, no space
+    // Функция с параметър обект, без интервали
     foo({
       a: "alpha",
       b: "beta"
     });
 
-    // Single argument string literal, no space
+    // Един аргумент, без интервали
     foo("bar");
 
-    // Expression parens, no space
+    // Условни скоби, без интервали
     if ( !("foo" in obj) ) {
       obj = (obj.bar || defaults).baz;
     }
 
     ```
 
-    D. Consistency Always Wins
+    D. Последователността винаги печели
 
-    In sections 2.A-2.C, the whitespace rules are set forth as a recommendation with a simpler, higher purpose: consistency.
-    It's important to note that formatting preferences, such as "inner whitespace" should be considered optional, but only one style should exist across the entire source of your project.
+    В секции 2.A-2.C, правилата за отстояния са препоръчителни за поддържане на консистентност при писането на код.
+    Важно е да се отбележи, че препоръките за форматиране на код, като "вътрешни отстояния" са опционални, но поддържането на еднообразен стил за целия проект е от съществено значение.
 
     ```javascript
 
     // 2.D.1.1
 
-    if (condition) {
+    if (условие) {
       // заявления
     }
 
-    while (condition) {
+    while (условие) {
       // заявления
     }
 
@@ -453,40 +451,40 @@
 
     ```
 
-    E. Quotes
+    E. Кавички
 
-    Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them. What **ABSOLUTELY MUST** be enforced is consistency. **Never mix quotes in the same project. Pick one style and stick with it.**
+    За JavaScript няма никакво значение дали ще използвате единични или двойни кавички. Това, което **НАИСТИНА ИМА ЗНАЧЕНИЕ** е да бъдете последователни. **Никога не смесвайте кавичките в един и същ проект. Изберете стил и се придържайте към него.**
 
-    F. End of Lines and Empty Lines
+    F. Край на редове и празни редове
 
-    Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically.
+    Отстоянията могат да напарвят кода невъзможен за четене. Помислете дали да не включите употребата от pre-commit hook който да премахва интервалите в края на редовете и празните редове автоматично.
 
-3. <a name="type">Type Checking (Courtesy jQuery Core Style Guidelines)</a>
+3. <a name="type">Правопис (Courtesy jQuery Core Style Guidelines)</a>
 
-    A. Actual Types
+    A. Реални типове данни
 
-    String:
+    Низове:
 
         typeof variable === "string"
 
-    Number:
+    Числа:
 
         typeof variable === "number"
 
-    Boolean:
+    Булеви данни:
 
         typeof variable === "boolean"
 
-    Object:
+    Обекти:
 
         typeof variable === "object"
 
-    Array:
+    Масиви:
 
         Array.isArray( arrayLikeObject )
-        (wherever possible)
+        (където е необходимо)
 
-    Node:
+    Нодове:
 
         elem.nodeType === 1
 
@@ -494,31 +492,31 @@
 
         variable === null
 
-    null or undefined:
+    null или undefined:
 
         variable == null
 
     undefined:
 
-      Global Variables:
+      Глобални променливи:
 
         typeof variable === "undefined"
 
-      Local Variables:
+      Локални променливи:
 
         variable === undefined
 
-      Properties:
+      Характеристики:
 
         object.prop === undefined
         object.hasOwnProperty( prop )
         "prop" in object
 
-    B. Coerced Types
+    B. Coerce типове
 
-    Consider the implications of the following...
+    Да вземем следния пример...
 
-    Given this HTML:
+    Даден е този HTML:
 
     ```html
 
@@ -531,20 +529,20 @@
 
     // 3.B.1.1
 
-    // `foo` has been declared with the value `0` and its type is `number`
+    // `foo` е променлива, декларирана със стойност `0` и тип `number`
     var foo = 0;
 
     // typeof foo;
     // "number"
     ...
 
-    // Somewhere later in your code, you need to update `foo`
-    // with a new value derived from an input element
+    // По-натам в кода, се налага да промените стойността на `foo`
+    // с нова стойност, която идва от input елемент
 
     foo = document.getElementById("foo-input").value;
 
-    // If you were to test `typeof foo` now, the result would be `string`
-    // This means that if you had logic that tested `foo` like:
+    // Ако сега тествате типа на променливата `typeof foo`, резултатът ще е `string`
+    // Това означава, че ако имате логика, която тества `foo` така:
 
     if ( foo === 1 ) {
 
@@ -552,17 +550,17 @@
 
     }
 
-    // `importantTask()` would never be evaluated, even though `foo` has a value of "1"
+    // `importantTask()` никога няма да бъде изпълнена, въпреки че `foo` има стойност "1"
 
 
     // 3.B.1.2
 
-    // You can preempt issues by using smart coercion with unary + or - operators:
+    // Можете да решите проблема като използвате smart coercion с унарните + или - оператори:
 
     foo = +document.getElementById("foo-input").value;
-    //    ^ unary + operator will convert its right side operand to a number
+    //    ^ унарен + оператор автоматично ще конвертира дясната страна до number тип
 
-    // typeof foo;
+    // И сега typeof foo;
     // "number"
 
     if ( foo === 1 ) {
@@ -571,10 +569,10 @@
 
     }
 
-    // `importantTask()` will be called
+    // `importantTask()` ще бъде изпълнена
     ```
 
-    Here are some common cases along with coercions:
+    Ето няколко често срещани варианти на този тип:
 
 
     ```javascript
@@ -660,9 +658,9 @@
     !!~array.indexOf("d");
     // false
 
-    // Note that the above should be considered "unnecessarily clever"
-    // Prefer the obvious approach of comparing the returned value of
-    // indexOf, like:
+    // Забалежете, че горните примери се квалифицират като "ненужно умен подход"
+    // Винаги предпочитайте очевините подходи за сравняване
+    // indexOf, като:
 
     if ( array.indexOf( "a" ) >= 0 ) {
       // ...
@@ -677,7 +675,7 @@
 
     parseInt( num, 10 );
 
-    // is the same as...
+    // е същото като...
 
     ~~num;
 
@@ -685,27 +683,27 @@
 
     num >>> 0;
 
-    // All result in 2
+    // Всички резултати в 2
 
 
-    // Keep in mind however, that negative numbers will be treated differently...
+    // Не забравяйте, че отрицателните числа се третират различно...
 
     var neg = -2.5;
 
     parseInt( neg, 10 );
 
-    // is the same as...
+    // е същото като...
 
     ~~neg;
 
     neg >> 0;
 
-    // All result in -2
-    // However...
+    // Всички резултати в -2
+    // Обаче...
 
     neg >>> 0;
 
-    // Will result in 4294967294
+    // Ще върне 4294967294
 
 
 
@@ -714,7 +712,7 @@
 
 
 
-4. <a name="cond">Conditional Evaluation</a>
+4. <a name="cond">Условни Оценки</a>
 
     ```javascript
 
