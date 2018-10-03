@@ -717,117 +717,113 @@
     ```javascript
 
     // 4.1.1
-    // When only evaluating that an array has length,
-    // instead of this:
+    // Когато проверявате дали масива има length,
+    // вместо така:
     if ( array.length > 0 ) ...
 
-    // ...evaluate truthiness, like this:
+    // ...проверявайте само дали е true:
     if ( array.length ) ...
 
 
     // 4.1.2
-    // When only evaluating that an array is empty,
-    // instead of this:
+    // Когато проверявате дали масива е празен,
+    // вместо така:
     if ( array.length === 0 ) ...
 
-    // ...evaluate truthiness, like this:
+    // ...проверявайте само дали е true:
     if ( !array.length ) ...
 
 
     // 4.1.3
-    // When only evaluating that a string is not empty,
-    // instead of this:
+    // Когато проверявате дали низа не е празен,
+    // вместо така:
     if ( string !== "" ) ...
 
-    // ...evaluate truthiness, like this:
+    // ...проверявайте само дали е true:
     if ( string ) ...
 
 
     // 4.1.4
-    // When only evaluating that a string _is_ empty,
-    // instead of this:
+    // Когато проверявате дали низа _е_ празен,
+    // вместо така:
     if ( string === "" ) ...
 
-    // ...evaluate falsy-ness, like this:
+    // ...проверявайта дали не е false така:
     if ( !string ) ...
 
 
     // 4.1.5
-    // When only evaluating that a reference is true,
-    // instead of this:
+    // Когато проверявате дали променлива е true,
+    // вместо така:
     if ( foo === true ) ...
 
-    // ...evaluate like you mean it, take advantage of built in capabilities:
+    // ...проверявайте по този начин, за да използвате вградените възможности:
     if ( foo ) ...
 
 
     // 4.1.6
-    // When evaluating that a reference is false,
-    // instead of this:
+    // Когато проверявате дали променлива е false,
+    // вместо така:
     if ( foo === false ) ...
 
-    // ...use negation to coerce a true evaluation
+    // ...проверявайте по този начин, за true
     if ( !foo ) ...
 
-    // ...Be careful, this will also match: 0, "", null, undefined, NaN
-    // If you _MUST_ test for a boolean false, then use
+    // ...Внимавайте, защото това ще върне истина и за стойностите: 0, "", null, undefined, NaN
+    // Ако _ТРЯБВА_ да тествате булева променлива за стойност false, използвайте този подход:
     if ( foo === false ) ...
 
 
     // 4.1.7
-    // When only evaluating a ref that might be null or undefined, but NOT false, "" or 0,
-    // instead of this:
+    // Когато проверявате за стойност, която би могла да е null или undefined, но НЕ false, "" или 0,
+    // вместо така:
     if ( foo === null || foo === undefined ) ...
 
-    // ...take advantage of == type coercion, like this:
+    // ...проверявайте по този начин:
     if ( foo == null ) ...
 
-    // Remember, using == will match a `null` to BOTH `null` and `undefined`
-    // but not `false`, "" or 0
+    // Не забравяйте, употребата на == няма да върне съвпадение за `null` и на двете `null` и `undefined`
+    // но не `false`, "" или 0
     null == undefined
 
     ```
-    ALWAYS evaluate for the best, most accurate result - the above is a guideline, not a dogma.
+    ВИНАГИ проверявайте по възможно най-точния резултат - написаното до тук е препоръка, не догма.
 
     ```javascript
 
     // 4.2.1
-    // Type coercion and evaluation notes
+    // Типове coercion и проверки
 
-    // Prefer `===` over `==` (unless the case requires loose type evaluation)
-
-    // === does not coerce type, which means that:
+    // Винаги предпочитайте `===` пред `==` (освен ако ситуацията не го налага)
 
     "1" === 1;
     // false
 
-    // == does coerce type, which means that:
-
     "1" == 1;
-    // true
+    // истина
 
 
     // 4.2.2
-    // Booleans, Truthies & Falsies
+    // Булеви стойности - истина и лъжа
 
-    // Booleans:
+    // Булеви стойности:
     true, false
 
-    // Truthy:
+    // Булева стойност: истина:
     "foo", 1
 
-    // Falsy:
+    // Булева стойност: лъжа:
     "", 0, null, undefined, NaN, void 0
 
     ```
 
 
-5. <a name="practical">Practical Style</a>
+5. <a name="practical">Практически стил</a>
 
     ```javascript
 
     // 5.1.1
-    // A Practical Module
+    // Практически модул
 
     (function( global ) {
       var Module = (function() {
@@ -835,30 +831,30 @@
         var data = "secret";
 
         return {
-          // This is some boolean property
+          // Някаква булева стойност
           bool: true,
-          // Some string value
+          // Някакъв низ
           string: "a string",
-          // An array property
+          // Масив
           array: [ 1, 2, 3, 4 ],
-          // An object property
+          // Обект
           object: {
             lang: "en-Us"
           },
           getData: function() {
-            // get the current value of `data`
+            // вземи текущата стойност на `data`
             return data;
           },
           setData: function( value ) {
-            // set the value of `data` and return it
+            // сложи стойност на `data` и я върни
             return ( data = value );
           }
         };
       })();
 
-      // Other things might happen here
+      // тук например има някаква функционалност
 
-      // expose our module to the global object
+      // модул в глобалния обект
       global.Module = Module;
 
     })( this );
@@ -868,7 +864,7 @@
     ```javascript
 
     // 5.2.1
-    // A Practical Constructor
+    // Практически конструктор
 
     (function( global ) {
 
@@ -888,13 +884,13 @@
       };
 
 
-      // To call constructor's without `new`, you might do this:
+      // Извикване на конструктур без `new`:
       var ctor = function( foo ) {
         return new Ctor( foo );
       };
 
 
-      // expose our constructor to the global object
+      // конструктор в глобалния обект
       global.ctor = ctor;
 
     })( this );
@@ -903,7 +899,7 @@
 
 
 
-6. <a name="naming">Naming</a>
+6. <a name="naming">Именуване</a>
 
 
 
